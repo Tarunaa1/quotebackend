@@ -17,8 +17,8 @@ const CONNECTION_STRING =  `mongodb+srv://${encodeURIComponent(username)}:${enco
 // const client = new mongoclient(CONNECTION_STRING);
 
 let database ; 
-
-app.listen(5000, ()=>{
+const port = process.env.PORT || 5000;
+app.listen(port, ()=>{
     const client = new mongoclient(CONNECTION_STRING);
     database = client.db(dbName);
     console.log("Mongodb connected succesfully!");
