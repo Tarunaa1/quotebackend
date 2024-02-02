@@ -33,7 +33,7 @@ app.get("/quotes", async (req, res) => {
     try {
         const quotes = await database.collection("quotes").find({}).toArray();
         console.log('Quotes retrieved successfully:');
-        res.send(quotes);
+        res.send(quotes[Math.floor(Math.random() * quotes.length)]);
     } catch (error) {
         console.error("Error retrieving quotes:", error);
         res.status(500).send("Internal Server Error");
